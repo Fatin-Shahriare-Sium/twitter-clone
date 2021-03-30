@@ -1,13 +1,11 @@
 import { Avatar } from '@material-ui/core'
-import React, { useEffect, useState } from 'react'
-import CommentIcon from '@material-ui/icons/Comment';
+import React, { useState } from 'react'
 import RepeatIcon from '@material-ui/icons/Repeat';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import PublishIcon from '@material-ui/icons/Publish';
-import { v4 as uuidv4 } from 'uuid';
 import ChatBubbleOutlineOutlinedIcon from '@material-ui/icons/ChatBubbleOutlineOutlined';
 import './post.css'
-import { useRef } from 'react';
+import db from './firebase.js'
 const Post = ({
     avator,
     userName,
@@ -15,11 +13,12 @@ const Post = ({
     time,
     text,
     img,
-    love
+    love,
+    id
 
 }) => {
    
-
+    let [changeColor,setchangeColor]=useState(false)
   function imgRender(imgx){
     if(imgx.length===1){
        return imgx.map((sig,index)=><img key={index} src={sig} alt='' />)
@@ -28,6 +27,21 @@ const Post = ({
     }else{
        return imgx.map((sig,index)=><img key={index} src={sig} alt='' style={{height:'50%',width:'44%',padding:'2px 13px'}} />)
     }
+  }
+  let key=0
+  function controllLove(id){
+    
+    console.log(id);
+      if(!changeColor){
+        db.collection('post').doc(id).update({love:love + 1})
+        key=1
+        setchangeColor(true)
+      }else{
+        db.collection('post').doc(id).update({love:love===0?love:love-1})
+       
+        setchangeColor(false)
+      }
+    
   }
     return (
         <div  className='post'>
@@ -62,9 +76,9 @@ const Post = ({
                  <RepeatIcon />
                  <p>1</p>
                 </div>
-                <div   className='post__footer--love'>
-                <FavoriteBorderIcon style={{color:'red'}} />
-                <p style={{color:'red'}}>{love}</p>
+                <div onClick={()=>controllLove(id)}  className='post__footer--love'>
+                <FavoriteBorderIcon style={changeColor?{color:'red'}:{color:'white'}} />
+                <p style={changeColor?{color:'red'}:{color:'white'}}>{love}</p>
                 </div>
                
                 <PublishIcon  className='post__footer--publish'/>

@@ -23,11 +23,20 @@ const Feed = () => {
     }
   
     let [state,dispatch]=useReducer(reducer,{loading:true,data:[]})
+   
+   
+    function fullData(doc){
+       
+        return {
 
+            id:doc.id,
+            ...doc.data()
+        }
+    }
     useEffect(()=>{
  
         db.collection('post').onSnapshot(snapShot=>{
-            let getData=snapShot.docs.map(doc=>doc.data());
+            let getData=snapShot.docs.map(doc=>fullData(doc));
             console.log(getData);
             dispatch({type:Actions.SET_DATA,payload:{tt:getData,loading:false}})
                 
@@ -42,7 +51,7 @@ const Feed = () => {
             </div>
             <InputBox/>
         {
-            state.loading?'':state.data.map((sig,index)=><Post key={index} avator={sig.avator}  userName={sig.userName} img={sig.img} love={sig.love} smallName={sig.smallName} time={5} text={sig.text}/>)
+            state.loading?'':state.data.map((sig,index)=><Post key={index} avator={sig.avator}  userName={sig.userName} id={sig.id} img={sig.img} love={sig.love} smallName={sig.smallName} time={5} text={sig.text}/>)
         }
             
            
