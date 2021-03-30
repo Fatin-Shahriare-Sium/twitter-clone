@@ -1,0 +1,36 @@
+.treand-box{
+
+    font-size: 13px;
+    border-top: 1px solid rgba(196, 203, 196,.3);
+    border-bottom: 1px solid rgba(196, 203, 196,.3);
+    
+}
+.treand-box:hover{
+   cursor: pointer;
+    background-color: rgba(40,40,40   );
+}
+.treand-box__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 13px 0px;
+}
+
+.treand__details p{
+    color: white;
+    padding: 2px;
+    margin: 0px;
+}
+.treand__more--icon svg{
+    color: white;
+    margin-bottom: 53%;
+    padding: 7px;
+}
+.treand__more--icon svg:hover{
+    background-color: rgba(39, 173, 240,.2);
+    border-radius: 30px;
+    transition: background-color .5s;
+}

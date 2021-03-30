@@ -1,0 +1,28 @@
+.signal-slider{
+    display: flex;
+   align-items: center;
+   color: white;
+   font-weight: 700;
+   font-size: 20px;
+   margin: 5% 0px;
+   padding-left:11px;
+   padding-right: 25px;
+   max-width: max-content;
+   border-radius: 19px;
+   height: 39px;
+   
+
+}
+.signal-slider__icon{
+    font-size: 30px!important;
+}
+.signal-slider__active{
+    color: var(--twitter-color);
+}
+.signal-slider:hover{
+    color: var(--twitter-color);
+    border-radius: 19px;
+    
+    cursor: pointer;
+    background-color:rgba(101, 119 ,134,.1);
+}

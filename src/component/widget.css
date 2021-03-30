@@ -1,0 +1,60 @@
+.widget{
+    flex: .3;
+    
+    margin-left: 2%;
+}
+.widget__search{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:43px;
+    background-color: #323532;
+    border-radius: 21px;
+}
+.border__search{
+    border: 1px solid  rgba( 5, 134, 198,1 );
+    background-color: var(--twitter-back);
+}
+.border__search .search{
+    color: rgba( 5, 134, 198,1 )!important;
+}
+
+.widget__search .search{
+    margin-left: 3%;
+    color: rgba(196, 203, 196)
+}
+.widget__search input{
+  margin-right: 37%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: rgba(196, 203, 196);
+  font-size: 14px;
+}
+.widget__treands-for-you{
+   background-color: rgba(30,30,30   );
+    margin-top: 4%;
+}
+.treand__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.treand__header p{
+    font-weight: 800;
+    font-size: 17px;
+    color: rgb(217, 217, 217);
+}
+.treand__header .settings{
+    color: var(--twitter-color);
+    padding: 7px;
+    
+}
+.treand__header .settings:hover{
+    background-color: rgba(39, 173, 240,.2);
+    border-radius: 30px;
+    transition: background-color .5s;
+}
